@@ -19,6 +19,8 @@ class CalculatorKey extends StatelessWidget {
     }
   }
 
+  String get value => symbol.value;
+
   static dynamic _fire(CalculatorKey key) => KeyController.fire(KeyEvent(key));
 
   @override

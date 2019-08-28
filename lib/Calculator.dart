@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hot_lava/Display.dart';
+import 'package:hot_lava/KeyController.dart';
 import 'package:hot_lava/KeyPad.dart';
+import 'package:hot_lava/Processor.dart';
 
 class Calculator extends StatefulWidget {
   Calculator({Key key}) : super(key: key);
@@ -14,11 +16,16 @@ class _CalculatorState extends State<Calculator> {
 
   @override
   void initState() {
+    KeyController.listen((event) => Processor.process(event));
+    Processor.listen((data) => setState(() { _output = data; }));
+    Processor.refresh();
     super.initState();
   }
 
   @override
   void dispose() {
+    KeyController.dispose();
+    Processor.dispose();
     super.dispose();
   }
 
