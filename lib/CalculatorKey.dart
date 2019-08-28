@@ -35,7 +35,7 @@ class CalculatorKey extends StatelessWidget {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6)),
         color: color,
         child: Text(symbol.value, style: style),
-        onPressed: _fire(this),
+        onPressed: () => _fire(this),
       ),
     );
   }
